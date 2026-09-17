@@ -1,0 +1,73 @@
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: grid;
+  place-items: end start;
+  overflow: hidden;
+}
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(36,25,16,0.15), rgba(36,25,16,0.55));
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 8vw;
+  color: white;
+  max-width: 760px;
+}
+.eyebrow {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+.hero h1 { font-size: clamp(3rem, 7vw, 5.4rem); line-height: 0.95; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.breed-grid, .puppy-grid, .why-grid, .testimonial-grid {
+  display: grid;
+  gap: 24px;
+}
+.breed-grid { grid-template-columns: 1fr 1fr; }
+.puppy-grid { grid-template-columns: repeat(3, 1fr); }
+.why-grid { grid-template-columns: repeat(5, 1fr); }
+.testimonial-grid { grid-template-columns: repeat(3, 1fr); }
+.breed-card, .puppy-card, .why-card, .testimonial-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.breed-card img, .puppy-photo img, .testimonial-card img, .photo-mosaic img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+.breed-card div, .puppy-card-body, .why-card, .testimonial-card { padding: 22px; }
+.why-card { min-height: 180px; }
+.photo-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.photo-mosaic img { border-radius: 18px; height: 240px; }
+.meta, .color { color: var(--muted); margin: 0; }
+.price { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; margin: 8px 0 16px; }
+.card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.puppy-photo { position: relative; display: block; }
+.puppy-photo .status-pill { position: absolute; left: 12px; top: 12px; background: rgba(255,253,249,0.94); }
+@media (max-width: 1000px) {
+  .puppy-grid, .testimonial-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .breed-grid, .puppy-grid, .testimonial-grid, .photo-mosaic, .why-grid { grid-template-columns: 1fr; }
+  .hero { min-height: 78vh; }
+}

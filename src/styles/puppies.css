@@ -1,0 +1,19 @@
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 28px 0 36px;
+}
+.filters input, .filters select, .checkout-form input, .checkout-form textarea {
+  width: 100%;
+  border: 1px solid var(--sand);
+  background: white;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+@media (max-width: 900px) {
+  .filters { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .filters { grid-template-columns: 1fr; }
+}
