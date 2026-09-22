@@ -163,10 +163,15 @@ const en = {
     termsRequired: "Please accept the terms."
   },
   about: {
+    kicker: "Our kennel",
     title: "About Eden Canine",
-    p1: "Eden Canine is a family kennel based in France, dedicated to the Border Collie and the Poodle. We raise few litters, with high standards of health, temperament and socialisation.",
-    p2: "Each puppy grows up with people, discovers everyday sounds and leaves with a transparent file. Our role does not stop at handover: we support families in the first weeks.",
-    p3: "The sale is transparent: you choose, you order, then you chat with us on WhatsApp to agree on payment and the meeting."
+    p1: "Eden Canine is a family-run kennel in France, specialising in Border Collies and Poodles. We breed with high standards, prioritising health, temperament, quality of life and a calm, reassuring environment for every puppy.",
+    p2: "Each litter is carefully monitored from birth to departure. Our puppies grow in a family environment, are gradually exposed to normal household sounds and receive thoughtful socialisation so they can settle with confidence in their new home.",
+    p3: "We believe in a transparent, personal relationship with every family: clear information on the lines, reliable documents, attentive support and honest communication without pressure. The well-being of the dogs and the satisfaction of their owners are at the heart of our approach.",
+    valuesTitle: "Our commitments",
+    value1: "Rigorous line selection focused on health and temperament.",
+    value2: "Gentle socialisation and family environment from the earliest weeks.",
+    value3: "Veterinary follow-up, transparency and tailored support for each family."
   },
   contact: {
     kicker: "Contact",

@@ -9,13 +9,14 @@ export default function Footer() {
   const { settings } = useStore();
   const year = new Date().getFullYear();
   const name = settings?.siteName || t.brand;
+  const logoSrc = settings?.logo && settings.logo !== "/Gemini_Generated_Image_d25d08d25d08d25d.jpeg" ? settings.logo : "/logo.jpeg";
 
   return (
     <footer className="site-footer">
       <div className="footer-grid">
         <div>
           <div className="brand footer-brand">
-            <span className="brand-mark">EC</span>
+            <span className="brand-mark"><img src={logoSrc} alt={name} /></span>
             <span>
               <strong>{name}</strong>
               <em>{t.tagline}</em>

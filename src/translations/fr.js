@@ -163,10 +163,15 @@ const fr = {
     termsRequired: "Veuillez accepter les conditions."
   },
   about: {
+    kicker: "Notre élevage",
     title: "À propos d’Eden Canine",
-    p1: "Eden Canine est un élevage familial basé en France, dédié au Border Collie et au Caniche. Nous élevons peu de portées, avec une exigence de santé, de caractère et de socialisation.",
-    p2: "Chaque chiot grandit au contact humain, découvre les bruits du quotidien et part avec un dossier transparent. Notre rôle ne s’arrête pas à la remise : nous accompagnons les familles dans les premières semaines.",
-    p3: "La vente se fait en toute clarté : vous choisissez, vous commandez, puis vous échangez avec nous sur WhatsApp pour convenir du paiement et de la rencontre."
+    p1: "Eden Canine est un élevage familial basé en France, spécialisé dans les Border Collies et les Caniches. Nous élevons avec exigence, en privilégiant la santé, le caractère, la qualité de vie et un cadre rassurant pour chaque chiot.",
+    p2: "Chaque portée est suivie de près, de la naissance jusqu’à son départ. Nos chiots grandissent au contact de la famille, sont habitués aux bruits du quotidien et bénéficient d’une socialisation progressive afin d’entrer dans leur nouveau foyer avec sérénité.",
+    p3: "Nous croyons en une relation de confiance avec les familles : transparence sur les lignées, documents fiables, accompagnement personnalisé et une communication claire, sans pression. Le bien-être des chiens et la satisfaction des propriétaires sont au cœur de notre démarche.",
+    valuesTitle: "Nos engagements",
+    value1: "Sélection rigoureuse des lignées pour la santé et le caractère.",
+    value2: "Socialisation douce et environnement familial dès les premières semaines.",
+    value3: "Suivi vétérinaire, transparence et accompagnement personnalisé pour chaque famille."
   },
   contact: {
     kicker: "Contact",

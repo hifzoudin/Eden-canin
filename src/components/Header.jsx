@@ -11,7 +11,7 @@ export default function Header() {
   const { settings } = useStore();
   const [open, setOpen] = useState(false);
   const name = settings?.siteName || t.brand;
-  const logoSrc = settings?.logo || "/logo.jpeg";
+  const logoSrc = settings?.logo && settings.logo !== "/Gemini_Generated_Image_d25d08d25d08d25d.jpeg" ? settings.logo : "/logo.jpeg";
 
   return (
     <header className="site-header">

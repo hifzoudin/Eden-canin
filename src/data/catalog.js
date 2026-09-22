@@ -1,6 +1,6 @@
 export const defaultSettings = {
   siteName: "Eden Canine",
-  logo: "/Gemini_Generated_Image_d25d08d25d08d25d.jpeg",
+  logo: "/logo.jpeg",
   whatsapp: "",
   email: "hello@eden-canine.fr",
   address: "France",

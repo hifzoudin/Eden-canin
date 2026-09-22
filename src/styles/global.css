@@ -203,7 +203,7 @@ button, input, select, textarea { font-family: inherit; }
 }
 .contact-card p,
 .contact-card a {
-  color: var(--muted);
+  color: #d4a017;
 }
 .contact-btn {
   margin-top: 8px;

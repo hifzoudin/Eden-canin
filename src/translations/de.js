@@ -163,10 +163,15 @@ const de = {
     termsRequired: "Bitte akzeptieren Sie die Bedingungen."
   },
   about: {
+    kicker: "Unsere Zucht",
     title: "Über Eden Canine",
-    p1: "Eden Canine ist eine Familienzucht in Frankreich, spezialisiert auf Border Collie und Pudel. Wir ziehen wenige Würfe mit hohen Ansprüchen an Gesundheit, Wesen und Sozialisierung auf.",
-    p2: "Jeder Welpe wächst mit Menschen auf, kennt Alltaggeräusche und geht mit transparenter Akte. Unsere Rolle endet nicht bei der Übergabe: wir begleiten die Familien in den ersten Wochen.",
-    p3: "Der Verkauf ist klar: Sie wählen, bestellen und sprechen dann mit uns auf WhatsApp über Zahlung und Treffen."
+    p1: "Eden Canine ist eine familiengeführte Zucht in Frankreich, spezialisiert auf Border Collies und Pudel. Wir züchten mit hohen Standards und legen Wert auf Gesundheit, Wesen, Lebensqualität und ein ruhiges, sicheres Umfeld für jeden Welpen.",
+    p2: "Jeder Wurf wird von der Geburt bis zur Abgabe sorgfältig begleitet. Unsere Welpen wachsen in einem familiären Umfeld auf, gewöhnen sich allmählich an normale Alltaggeräusche und erhalten eine gezielte Sozialisierung, damit sie in ihrem neuen Zuhause sicher und entspannt ankommen.",
+    p3: "Wir glauben an eine vertrauensvolle Beziehung zu den Familien: klare Informationen zu den Linien, verlässliche Dokumente, persönliche Begleitung und offene Kommunikation ohne Druck. Das Wohl der Hunde und die Zufriedenheit der Besitzer stehen im Mittelpunkt unserer Arbeit.",
+    valuesTitle: "Unsere Verpflichtungen",
+    value1: "Strenge Linienauswahl mit Fokus auf Gesundheit und Wesen.",
+    value2: "Sanfte Sozialisierung und familiäre Umgebung bereits in den ersten Wochen.",
+    value3: "Tierärztliche Betreuung, Transparenz und individuelle Unterstützung für jede Familie."
   },
   contact: {
     kicker: "Kontakt",

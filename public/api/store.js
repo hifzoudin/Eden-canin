@@ -45,7 +45,7 @@ export function getPublicSettings() {
   const { settings } = load();
   return {
     siteName: settings.siteName || "Eden Canine",
-    logo: settings.logo || "",
+    logo: settings.logo || "/logo.jpeg",
     whatsapp: settings.whatsapp || "",
     email: settings.email || "hello@eden-canine.fr",
     address: settings.address || "France",
