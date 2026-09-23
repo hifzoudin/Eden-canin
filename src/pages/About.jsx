@@ -1,10 +1,13 @@
 import { useI18n } from "../context/LanguageContext";
+import SEO from "../seo/SEO.jsx";
 
 export default function About() {
   const { t } = useI18n();
 
   return (
-    <section className="page prose about-page">
+    <>
+      <SEO title="À propos d’Eden Canin | Élevage de chiots en France" description="Découvrez Eden Canin, un élevage familial en France, spécialisé dans les Border Collies et les Caniches, avec un suivi attentif et une socialisation soignée." path="/about" />
+      <section className="page prose about-page">
       <header className="page-header">
         <p className="section-kicker">{t.about.kicker || "Notre élevage"}</p>
         <h1>{t.about.title}</h1>
@@ -27,5 +30,6 @@ export default function About() {
         </div>
       </div>
     </section>
+    </>
   );
 }

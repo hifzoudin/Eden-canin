@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /orders/
+Disallow: /customers/
+Disallow: /sales/
+Disallow: /settings/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /panier
+Disallow: /commande
+
+Sitemap: https://www.eden-canin.fr/sitemap.xml

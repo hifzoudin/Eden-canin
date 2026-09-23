@@ -4,6 +4,7 @@ import BreedCard from "../components/BreedCard";
 import PuppyCard from "../components/PuppyCard";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import SEO from "../seo/SEO.jsx";
 import { loc } from "../translations";
 
 export default function Home() {
@@ -12,7 +13,15 @@ export default function Home() {
   const featured = puppies.filter((p) => p.status !== "sold").slice(0, 6);
 
   return (
-    <div className="home">
+    <>
+      <SEO
+        title="Eden Canin | Chiots à vendre – French Bulldog, Dachshund, Poodle & plus"
+        description="Découvrez les chiots disponibles chez Eden Canin : French Bulldog, Dachshund, Épagneul Breton, Border Collie et Poodle. Consultez leurs détails et contactez-nous sur WhatsApp."
+        image="https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=1200&q=80"
+        type="website"
+        path="/"
+      />
+      <div className="home">
       <section className="hero">
         <img
           className="hero-image"
@@ -123,5 +132,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

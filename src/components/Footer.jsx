@@ -34,8 +34,10 @@ export default function Footer() {
         </div>
         <div>
           <h4>{t.nav.breeds}</h4>
-          <Link to="/chiots?race=border-collie">{t.breeds.border}</Link>
-          <Link to="/chiots?race=poodle">{t.breeds.poodle}</Link>
+          <Link to="/puppies/french-bulldog">French Bulldog Puppies</Link>
+          <Link to="/puppies/dachshund">Dachshund Puppies</Link>
+          <Link to="/puppies/epagneul-breton">Épagneul Breton</Link>
+          <Link to="/puppies/chihuahua">Chihuahua</Link>
         </div>
         <div>
           <h4>{t.nav.contact}</h4>

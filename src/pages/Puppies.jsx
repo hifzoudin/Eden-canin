@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import PuppyCard from "../components/PuppyCard";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import SEO from "../seo/SEO.jsx";
 import { loc } from "../translations";
 
 export default function Puppies() {
@@ -47,7 +48,13 @@ export default function Puppies() {
   };
 
   return (
-    <section className="page puppies-page">
+    <>
+      <SEO
+        title="Nos chiots | Eden Canin"
+        description="Consultez les chiots disponibles chez Eden Canin. Filtrez par race, couleur, sexe ou budget et contactez-nous via WhatsApp."
+        path="/puppies"
+      />
+      <section className="page puppies-page">
       <div className="page-header">
         <h1>{t.puppies.title}</h1>
         <p>{t.puppies.intro}</p>
@@ -99,5 +106,6 @@ export default function Puppies() {
         </div>
       )}
     </section>
+    </>
   );
 }

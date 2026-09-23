@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import SEO from "../seo/SEO.jsx";
 import { whatsappHref } from "../../public/api/store";
 
 export default function Contact() {
@@ -44,7 +45,9 @@ export default function Contact() {
   }
 
   return (
-    <section className="page contact-page">
+    <>
+      <SEO title="Contact | Eden Canin" description="Contactez Eden Canin par WhatsApp, email ou via notre formulaire pour obtenir des informations sur nos chiots et notre élevage." path="/contact" />
+      <section className="page contact-page">
       <header className="contact-header">
         <p className="section-kicker">{t.contact.kicker}</p>
         <h1>{t.contact.title}</h1>
@@ -150,5 +153,6 @@ export default function Contact() {
         </div>
       </div>
     </section>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import CartItem from "../components/CartItem";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import SEO from "../seo/SEO.jsx";
 import { formatPrice } from "../translations";
 
 export default function Cart() {
@@ -15,7 +16,9 @@ export default function Cart() {
   });
 
   return (
-    <section className="page cart-page">
+    <>
+      <SEO title="Panier | Eden Canin" description="Votre panier Eden Canin. Consultez les chiots sélectionnés avant de passer la commande via WhatsApp." path="/panier" noIndex />
+      <section className="page cart-page">
       <h1>{t.cart.title}</h1>
       {items.length === 0 ? (
         <p className="empty">{t.cart.empty}</p>
@@ -39,5 +42,6 @@ export default function Cart() {
         </>
       )}
     </section>
+    </>
   );
 }
