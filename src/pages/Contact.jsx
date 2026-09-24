@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import { whatsappHref } from "../lib/store";
 import SEO from "../seo/SEO.jsx";
 import { whatsappHref } from "../../public/api/store";
 
@@ -41,7 +42,8 @@ export default function Contact() {
       form.message || ""
     ];
     const text = lines.join("\n");
-    window.open(whatsappHref(text), "_blank", "noopener,noreferrer");
+    const href = whatsappHref(text, settings?.whatsapp);
+    if (href) window.open(href, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -61,9 +63,13 @@ export default function Contact() {
               <span className="contact-icon">📱</span>
               <div>
                 <h3>{t.contact.whatsapp}</h3>
-                <a className="btn btn-whatsapp contact-btn" href={whatsappHref()} target="_blank" rel="noreferrer">
-                  {t.contact.whatsappButton}
-                </a>
+                {settings?.hasWhatsApp ? (
+                  <a className="btn btn-whatsapp contact-btn" href={whatsappHref("", settings.whatsapp)} target="_blank" rel="noreferrer">
+                    {t.contact.whatsappButton}
+                  </a>
+                ) : (
+                  <p>{t.checkout.whatsappMissing}</p>
+                )}
               </div>
             </div>
 

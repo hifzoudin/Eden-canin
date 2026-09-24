@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
-import { formatPrice } from "../translations";
+import { breedLabel, formatPrice } from "../translations";
 
 export default function CartItem({ item, livePuppy }) {
   const { t, lang } = useI18n();
@@ -14,7 +14,7 @@ export default function CartItem({ item, livePuppy }) {
       <img src={item.photo} alt={item.name} />
       <div>
         <h3><Link to={`/chiots/${item.id}`}>{item.name}</Link></h3>
-        <p>{t.breedNames[item.breed]} · {t.sex[item.sex]}</p>
+        <p>{breedLabel(livePuppy || item, lang, t)} · {t.sex[item.sex]}</p>
         <p className={`status-pill ${status}`}>{t.status[status]}</p>
         {!canPurchase && <p className="warn">{t.cart.unavailableItem}</p>}
         <p>{t.cart.quantity}: 1</p>

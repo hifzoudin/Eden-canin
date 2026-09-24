@@ -1,10 +1,10 @@
 import { useI18n } from "../context/LanguageContext";
-import { formatDate, loc } from "../translations";
+import { breedLabel, formatDate, loc } from "../translations";
 
 export default function PuppyInfo({ puppy }) {
   const { t, lang } = useI18n();
   const rows = [
-    [t.puppies.breed, t.breedNames[puppy.breed]],
+    [t.puppies.breed, breedLabel(puppy, lang, t)],
     [t.puppies.variety, loc(puppy.variety, lang)],
     [t.puppies.sex, t.sex[puppy.sex]],
     [t.details.birthDate, formatDate(puppy.birthDate, lang)],

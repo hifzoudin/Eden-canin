@@ -8,7 +8,7 @@ import { loc } from "../translations";
 
 export default function Puppies() {
   const { t, lang } = useI18n();
-  const { puppies } = useStore();
+  const { puppies, breeds, loading } = useStore();
   const [params] = useSearchParams();
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState({
@@ -63,8 +63,9 @@ export default function Puppies() {
         <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t.puppies.search} />
         <select value={filters.breed} onChange={set("breed")}>
           <option value="">{t.puppies.breed} — {t.puppies.all}</option>
-          <option value="border-collie">{t.breedNames["border-collie"]}</option>
-          <option value="poodle">{t.breedNames.poodle}</option>
+          {(breeds || []).map((breed) => (
+            <option key={breed.slug} value={breed.slug}>{loc(breed.name, lang)}</option>
+          ))}
         </select>
         <select value={filters.variety} onChange={set("variety")}>
           <option value="">{t.puppies.variety} — {t.puppies.all}</option>
@@ -98,7 +99,7 @@ export default function Puppies() {
         </select>
         <button type="button" className="btn btn-ghost" onClick={reset}>{t.puppies.reset}</button>
       </div>
-      {list.length === 0 ? (
+      {loading ? null : list.length === 0 ? (
         <p className="empty">{t.puppies.empty}</p>
       ) : (
         <div className="puppy-grid">

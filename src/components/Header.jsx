@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import { loc } from "../translations";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const breedLinks = [
@@ -15,9 +16,9 @@ const breedLinks = [
 ];
 
 export default function Header() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { items } = useCart();
-  const { settings } = useStore();
+  const { settings, breeds } = useStore();
   const [open, setOpen] = useState(false);
   const [breedMenuOpen, setBreedMenuOpen] = useState(false);
   const name = settings?.siteName || t.brand;
@@ -40,24 +41,9 @@ export default function Header() {
         <nav className={open ? "open" : ""}>
           <NavLink to="/" onClick={() => setOpen(false)}>{t.nav.home}</NavLink>
           <NavLink to="/chiots" onClick={() => setOpen(false)}>{t.nav.puppies}</NavLink>
-          <div className={`breed-menu ${breedMenuOpen ? "open" : ""}`}>
-            <button
-              type="button"
-              className="breed-menu-button"
-              onClick={() => setBreedMenuOpen((v) => !v)}
-              aria-expanded={breedMenuOpen}
-              aria-haspopup="true"
-            >
-              {t.breeds.title}
-            </button>
-            <div className="breed-menu-panel">
-              {breedLinks.map((breed) => (
-                <Link key={breed.to} to={breed.to} onClick={() => { setOpen(false); setBreedMenuOpen(false); }}>
-                  {breed.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          {(breeds || []).map((breed) => (
+            <NavLink key={breed.slug} to={`/chiots?race=${breed.slug}`} onClick={() => setOpen(false)}>{loc(breed.name, lang)}</NavLink>
+          ))}
           <NavLink to="/a-propos" onClick={() => setOpen(false)}>{t.nav.about}</NavLink>
           <NavLink to="/faq" onClick={() => setOpen(false)}>{t.nav.faq}</NavLink>
           <NavLink to="/contact" onClick={() => setOpen(false)}>{t.nav.contact}</NavLink>

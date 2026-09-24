@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
-import { formatPrice, loc } from "../translations";
+import { breedLabel, formatPrice, loc } from "../translations";
 
 export default function PuppyCard({ puppy }) {
   const { t, lang } = useI18n();
@@ -18,7 +18,7 @@ export default function PuppyCard({ puppy }) {
       <div className="puppy-card-body">
         <h3>{puppy.name}</h3>
         <p className="meta">
-          {t.breedNames[puppy.breed]} · {t.sex[puppy.sex]} · {puppy.ageWeeks} {t.puppies.weeks}
+          {breedLabel(puppy, lang, t)} · {t.sex[puppy.sex]} · {puppy.ageWeeks} {t.puppies.weeks}
         </p>
         <p className="color">{loc(puppy.color, lang)}</p>
         <p className="price">{formatPrice(puppy.price, lang)}</p>

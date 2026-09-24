@@ -32,6 +32,7 @@ export function CartProvider({ children }) {
           id: puppy.id,
           name: puppy.name,
           breed: puppy.breed,
+          breedName: puppy.breedName,
           sex: puppy.sex,
           price: puppy.price,
           photo: puppy.photos?.[0],

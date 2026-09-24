@@ -24,7 +24,8 @@ const en = {
   },
   breeds: {
     title: "Our breeds",
-    intro: "Two lines selected for health, temperament and beauty.",
+    intro: "Lines selected for health, temperament and beauty.",
+    line: "Discover our available {name}",
     border: "Border Collie",
     borderText: "Discover our available Border Collies",
     poodle: "Poodle",
@@ -159,6 +160,7 @@ const en = {
     confirmTitle: "Your order is ready to be finalised on WhatsApp.",
     confirmText: "A conversation opens with the breeder. Payment is discussed directly, with no card payment on this site.",
     error: "Unable to create the order. Check the details and puppy availability.",
+    whatsappMissing: "The breeder’s WhatsApp number is not configured.",
     phoneRequired: "Phone number is required.",
     termsRequired: "Please accept the terms."
   },
