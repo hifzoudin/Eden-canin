@@ -3,7 +3,6 @@ import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
 import { whatsappHref } from "../lib/store";
 import SEO from "../seo/SEO.jsx";
-import { whatsappHref } from "../../public/api/store";
 
 export default function Contact() {
   const { t } = useI18n();
