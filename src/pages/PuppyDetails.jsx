@@ -5,18 +5,36 @@ import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
 import { breedLabel, formatPrice, loc } from "../translations";
+import SEO from "../seo/SEO.jsx";
+import { formatPrice, loc } from "../translations";
 
 export default function PuppyDetails() {
-  const { id } = useParams();
+  const { id, breed, puppy: puppyParam } = useParams();
   const { puppies } = useStore();
   const { t, lang } = useI18n();
   const { add } = useCart();
-  const puppy = puppies.find((p) => p.id === id || p.slug === id);
+  const target = puppyParam || id;
+  const puppy = puppies.find((p) => p.id === target || p.slug === target || (breed && p.breed === breed && p.slug === target))
+    || puppies.find((p) => p.id === target || p.slug === target)
+    || puppies.find((p) => p.breed === breed && p.slug === target);
 
   if (!puppy) return <section className="page"><p>{t.puppies.empty}</p></section>;
 
+  const breedLabel = t.breedNames[puppy.breed] || puppy.breed;
+  const title = `${puppy.name} – ${breedLabel} Puppy | Eden Canin`;
+  const description = `Découvrez ${puppy.name}, un chiot ${breedLabel} disponible chez Eden Canin. Consultez ses photos, caractéristiques, prix et disponibilité.`;
+
   return (
-    <section className="page puppy-details">
+    <>
+      <SEO
+        title={title}
+        description={description}
+        image={puppy.photos?.[0]}
+        type="product"
+        path={`/puppies/${puppy.breed}/${puppy.slug || puppy.id}`}
+        puppy={puppy}
+      />
+      <section className="page puppy-details">
       <div className="details-grid">
         <PuppyGallery photos={puppy.photos} name={puppy.name} />
         <div>
@@ -93,5 +111,6 @@ export default function PuppyDetails() {
         )}
       </aside>
     </section>
+    </>
   );
 }

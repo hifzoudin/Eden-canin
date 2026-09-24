@@ -6,6 +6,8 @@ import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
 import { breedLabel, formatPrice } from "../translations";
+import SEO from "../seo/SEO.jsx";
+import { formatPrice } from "../translations";
 
 export default function Checkout() {
   const { t, lang } = useI18n();
@@ -57,7 +59,9 @@ export default function Checkout() {
 
   if (done) {
     return (
-      <section className="page checkout-page confirmation">
+      <>
+        <SEO title="Commande | Eden Canin" description="Préparez votre commande Eden Canin et finalisez le paiement via WhatsApp." path="/commande" noIndex />
+        <section className="page checkout-page confirmation">
         <h1>{t.checkout.confirmTitle}</h1>
         <p>{t.checkout.confirmText}</p>
         <p>{done.order?.orderNumber}</p>
@@ -66,11 +70,14 @@ export default function Checkout() {
         </a>
         <Link className="btn btn-ghost" to="/chiots">{t.cart.continue}</Link>
       </section>
+      </>
     );
   }
 
   return (
-    <section className="page checkout-page">
+    <>
+      <SEO title="Commande | Eden Canin" description="Préparez votre commande Eden Canin et finalisez le paiement via WhatsApp." path="/commande" noIndex />
+      <section className="page checkout-page">
       <h1>{t.checkout.title}</h1>
       <form onSubmit={submit} className="checkout-layout">
         <CheckoutForm t={t} form={form} setForm={setForm} />
@@ -92,5 +99,6 @@ export default function Checkout() {
         </aside>
       </form>
     </section>
+    </>
   );
 }

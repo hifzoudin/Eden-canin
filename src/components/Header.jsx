@@ -6,11 +6,21 @@ import { useStore } from "../context/StoreContext";
 import { loc } from "../translations";
 import LanguageSwitcher from "./LanguageSwitcher";
 
+const breedLinks = [
+  { label: "French Bulldog Puppies", to: "/puppies/french-bulldog" },
+  { label: "Dachshund Puppies", to: "/puppies/dachshund" },
+  { label: "Épagneul Breton", to: "/puppies/epagneul-breton" },
+  { label: "Border Collie", to: "/puppies/border-collie" },
+  { label: "Poodle", to: "/puppies/poodle" },
+  { label: "Chihuahua", to: "/puppies/chihuahua" }
+];
+
 export default function Header() {
   const { t, lang } = useI18n();
   const { items } = useCart();
   const { settings, breeds } = useStore();
   const [open, setOpen] = useState(false);
+  const [breedMenuOpen, setBreedMenuOpen] = useState(false);
   const name = settings?.siteName || t.brand;
   const logoSrc = settings?.logo && settings.logo !== "/Gemini_Generated_Image_d25d08d25d08d25d.jpeg" ? settings.logo : "/logo.jpeg";
 
