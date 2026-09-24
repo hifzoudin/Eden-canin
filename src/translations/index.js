@@ -11,6 +11,10 @@ export function loc(value, lang = "fr") {
   return value ?? "";
 }
 
+export function breedLabel(item, lang, dictionary) {
+  return loc(item?.breedName, lang) || dictionary?.breedNames?.[item?.breed] || item?.breed || "";
+}
+
 export function formatPrice(value, lang = "fr") {
   const locale = lang === "en" ? "en-GB" : lang === "de" ? "de-DE" : "fr-FR";
   return `${Number(value).toLocaleString(locale)} €`;

@@ -14,17 +14,24 @@ import Home from "./pages/Home";
 import { Legal, Privacy, Terms } from "./pages/Legal";
 import Puppies from "./pages/Puppies";
 import PuppyDetails from "./pages/PuppyDetails";
-import { whatsappHref } from "../public/api/store";
+import { whatsappHref } from "./lib/store";
 
 export default function App() {
   const location = useLocation();
   const { message, setMessage } = useCart();
   const { t } = useI18n();
-  const { settings } = useStore();
+  const { settings, error } = useStore();
 
   return (
     <>
       <Header />
+      {error && (
+        <p className="warn" style={{ margin: "16px auto", maxWidth: 720 }}>
+          {error === "config"
+            ? "Ajoutez VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY, puis redémarrez."
+            : "Impossible de charger le catalogue."}
+        </p>
+      )}
       <main>
         <AnimatePresence mode="wait">
           <motion.div key={location.pathname} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
@@ -46,7 +53,7 @@ export default function App() {
       </main>
       <Footer />
       {settings?.hasWhatsApp && (
-        <a className="floating-wa" href={whatsappHref()} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+        <a className="floating-wa" href={whatsappHref("", settings.whatsapp)} target="_blank" rel="noreferrer" aria-label="WhatsApp">
           WA
         </a>
       )}

@@ -3,12 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import { loc } from "../translations";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { items } = useCart();
-  const { settings } = useStore();
+  const { settings, breeds } = useStore();
   const [open, setOpen] = useState(false);
   const name = settings?.siteName || t.brand;
   const logoSrc = settings?.logo && settings.logo !== "/Gemini_Generated_Image_d25d08d25d08d25d.jpeg" ? settings.logo : "/logo.jpeg";
@@ -30,7 +31,9 @@ export default function Header() {
         <nav className={open ? "open" : ""}>
           <NavLink to="/" onClick={() => setOpen(false)}>{t.nav.home}</NavLink>
           <NavLink to="/chiots" onClick={() => setOpen(false)}>{t.nav.puppies}</NavLink>
-          <NavLink to="/chiots?race=border-collie" onClick={() => setOpen(false)}>{t.breeds.border}</NavLink>
+          {(breeds || []).map((breed) => (
+            <NavLink key={breed.slug} to={`/chiots?race=${breed.slug}`} onClick={() => setOpen(false)}>{loc(breed.name, lang)}</NavLink>
+          ))}
           <NavLink to="/a-propos" onClick={() => setOpen(false)}>{t.nav.about}</NavLink>
           <NavLink to="/faq" onClick={() => setOpen(false)}>{t.nav.faq}</NavLink>
           <NavLink to="/contact" onClick={() => setOpen(false)}>{t.nav.contact}</NavLink>

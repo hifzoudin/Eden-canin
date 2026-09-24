@@ -24,7 +24,8 @@ const fr = {
   },
   breeds: {
     title: "Nos races",
-    intro: "Deux lignées sélectionnées pour la santé, le caractère et la beauté.",
+    intro: "Des lignées sélectionnées pour la santé, le caractère et la beauté.",
+    line: "Découvrez nos {name} disponibles",
     border: "Border Collie",
     borderText: "Découvrez nos Border Collies disponibles",
     poodle: "Caniche",
@@ -159,6 +160,7 @@ const fr = {
     confirmTitle: "Votre commande est prête à être finalisée sur WhatsApp.",
     confirmText: "Une conversation s’ouvre avec l’éleveur. Le paiement se discute directement, sans carte bancaire sur ce site.",
     error: "Impossible de créer la commande. Vérifiez les informations et la disponibilité des chiots.",
+    whatsappMissing: "Le numéro WhatsApp de l’éleveur n’est pas configuré.",
     phoneRequired: "Le téléphone est obligatoire.",
     termsRequired: "Veuillez accepter les conditions."
   },

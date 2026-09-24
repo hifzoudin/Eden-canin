@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
+import { loc } from "../translations";
 import LanguageSwitcher from "./LanguageSwitcher";
 import WhatsAppButton from "./WhatsAppButton";
 
 export default function Footer() {
-  const { t } = useI18n();
-  const { settings } = useStore();
+  const { t, lang } = useI18n();
+  const { settings, breeds } = useStore();
   const year = new Date().getFullYear();
   const name = settings?.siteName || t.brand;
   const logoSrc = settings?.logo && settings.logo !== "/Gemini_Generated_Image_d25d08d25d08d25d.jpeg" ? settings.logo : "/logo.jpeg";
@@ -34,8 +35,9 @@ export default function Footer() {
         </div>
         <div>
           <h4>{t.nav.breeds}</h4>
-          <Link to="/chiots?race=border-collie">{t.breeds.border}</Link>
-          <Link to="/chiots?race=poodle">{t.breeds.poodle}</Link>
+          {(breeds || []).map((breed) => (
+            <Link key={breed.slug} to={`/chiots?race=${breed.slug}`}>{loc(breed.name, lang)}</Link>
+          ))}
         </div>
         <div>
           <h4>{t.nav.contact}</h4>

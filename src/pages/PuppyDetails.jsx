@@ -4,7 +4,7 @@ import PuppyInfo from "../components/PuppyInfo";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
-import { formatPrice, loc } from "../translations";
+import { breedLabel, formatPrice, loc } from "../translations";
 
 export default function PuppyDetails() {
   const { id } = useParams();
@@ -22,7 +22,7 @@ export default function PuppyDetails() {
         <div>
           <span className={`status-pill ${puppy.status}`}>{t.status[puppy.status]}</span>
           <h1>{puppy.name}</h1>
-          <p className="lead">{t.breedNames[puppy.breed]} · {loc(puppy.variety, lang)}</p>
+          <p className="lead">{breedLabel(puppy, lang, t)} · {loc(puppy.variety, lang)}</p>
           <p className="price">{formatPrice(puppy.price, lang)}</p>
           <PuppyInfo puppy={puppy} />
           {puppy.status === "sold" || !puppy.canPurchase ? (

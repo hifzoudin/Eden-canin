@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import CheckoutForm from "../components/CheckoutForm";
-import { createOrder } from "../../public/api/store";
+import { createOrder } from "../lib/store";
 import { useCart } from "../context/CartContext";
 import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
-import { formatPrice } from "../translations";
+import { breedLabel, formatPrice } from "../translations";
 
 export default function Checkout() {
   const { t, lang } = useI18n();
   const { items, total, clear } = useCart();
-  const { refresh } = useStore();
+  const { refresh, puppies, settings } = useStore();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -29,25 +29,27 @@ export default function Checkout() {
 
   if (items.length === 0 && !done) return <Navigate to="/panier" replace />;
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault();
     setError("");
     if (!form.phone) return setError(t.checkout.phoneRequired);
     if (!form.acceptedTerms) return setError(t.checkout.termsRequired);
+    if (!settings?.hasWhatsApp) return setError(t.checkout.whatsappMissing);
     setLoading(true);
     try {
-      const data = createOrder({
+      const data = await createOrder({
         puppyIds: items.map((i) => i.id),
         customer: form,
         lang,
-        acceptedTerms: form.acceptedTerms
+        acceptedTerms: form.acceptedTerms,
+        catalog: puppies
       });
-      window.open(data.whatsappUrl, "_blank");
+      window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
       setDone(data);
       clear();
       refresh();
-    } catch {
-      setError(t.checkout.error);
+    } catch (err) {
+      setError(err?.message === "whatsapp" ? t.checkout.whatsappMissing : t.checkout.error);
     } finally {
       setLoading(false);
     }
@@ -77,7 +79,7 @@ export default function Checkout() {
           {items.map((item) => (
             <div key={item.id} className="summary-row">
               <span>{item.name}</span>
-              <small>{t.breedNames[item.breed]} · {t.sex[item.sex]}</small>
+              <small>{breedLabel(puppies.find((puppy) => puppy.id === item.id) || item, lang, t)} · {t.sex[item.sex]}</small>
               <strong>{formatPrice(item.price, lang)}</strong>
             </div>
           ))}

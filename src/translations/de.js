@@ -24,7 +24,8 @@ const de = {
   },
   breeds: {
     title: "Unsere Rassen",
-    intro: "Zwei Linien, ausgewählt nach Gesundheit, Wesen und Schönheit.",
+    intro: "Linien, ausgewählt nach Gesundheit, Wesen und Schönheit.",
+    line: "Entdecken Sie unsere verfügbaren {name}",
     border: "Border Collie",
     borderText: "Entdecken Sie unsere verfügbaren Border Collies",
     poodle: "Pudel",
@@ -159,6 +160,7 @@ const de = {
     confirmTitle: "Ihre Bestellung kann nun auf WhatsApp finalisiert werden.",
     confirmText: "Es öffnet sich ein Gespräch mit dem Züchter. Die Zahlung wird direkt besprochen, ohne Kartenzahlung auf dieser Website.",
     error: "Bestellung konnte nicht erstellt werden. Prüfen Sie Angaben und Verfügbarkeit.",
+    whatsappMissing: "Die WhatsApp-Nummer der Zucht ist nicht hinterlegt.",
     phoneRequired: "Telefon ist Pflicht.",
     termsRequired: "Bitte akzeptieren Sie die Bedingungen."
   },

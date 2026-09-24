@@ -8,7 +8,7 @@ import { loc } from "../translations";
 
 export default function Home() {
   const { t, lang } = useI18n();
-  const { puppies, content } = useStore();
+  const { puppies, breeds, content, loading } = useStore();
   const featured = puppies.filter((p) => p.status !== "sold").slice(0, 6);
 
   return (
@@ -37,20 +37,16 @@ export default function Home() {
           <p>{t.breeds.intro}</p>
         </div>
         <div className="breed-grid">
-          <BreedCard
-            breed="border-collie"
-            title={t.breeds.border}
-            text={t.breeds.borderText}
-            to="/chiots?race=border-collie"
-            image="https://images.unsplash.com/photo-1551717743-49959800b1f6?auto=format&fit=crop&w=1200&q=80"
-          />
-          <BreedCard
-            breed="poodle"
-            title={t.breeds.poodle}
-            text={t.breeds.poodleText}
-            to="/chiots?race=poodle"
-            image="https://images.unsplash.com/photo-1616190263567-91e2bce65ce3?auto=format&fit=crop&w=1200&q=80"
-          />
+          {(breeds || []).map((breed) => (
+            <BreedCard
+              key={breed.slug}
+              breed={breed.slug}
+              title={loc(breed.name, lang)}
+              text={t.breeds.line.replace("{name}", loc(breed.name, lang))}
+              to={`/chiots?race=${breed.slug}`}
+              image={breed.image}
+            />
+          ))}
         </div>
       </section>
 
@@ -60,7 +56,7 @@ export default function Home() {
           <p>{t.available.intro}</p>
         </div>
         <div className="puppy-grid">
-          {featured.map((puppy) => <PuppyCard key={puppy.id} puppy={puppy} />)}
+          {!loading && featured.map((puppy) => <PuppyCard key={puppy.id} puppy={puppy} />)}
         </div>
         <div className="center">
           <Link className="btn btn-dark" to="/chiots">{t.available.viewAll}</Link>
