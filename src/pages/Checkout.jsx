@@ -17,7 +17,7 @@ export default function Checkout() {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
+    phone: "+34678908754",
     country: "France",
     city: "",
     address: "",
