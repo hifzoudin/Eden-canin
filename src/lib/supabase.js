@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 
-const url = import.meta.env.SUPABASE_URL;
-const key = import.meta.env.SUPABASE_ANON_KEY;
+// Accept either name. Vite only inlines vars allowed by envPrefix, and only at build time.
+const url = import.meta.env.SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL;
+const key = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const supabaseConfigured = Boolean(url && key);
 

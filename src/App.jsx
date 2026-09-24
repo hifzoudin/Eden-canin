@@ -30,7 +30,7 @@ export default function App() {
       {error && (
         <p className="warn" style={{ margin: "16px auto", maxWidth: 720 }}>
           {error === "config"
-            ? "Ajoutez SUPABASE_URL et SUPABASE_ANON_KEY, puis redémarrez."
+            ? "SUPABASE_URL et SUPABASE_ANON_KEY sont absents de ce build. Sur Vercel, vérifiez-les pour Production, puis relancez un déploiement."
             : "Impossible de charger le catalogue."}
         </p>
       )}
