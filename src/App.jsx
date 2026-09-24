@@ -30,7 +30,7 @@ export default function App() {
       {error && (
         <p className="warn" style={{ margin: "16px auto", maxWidth: 720 }}>
           {error === "config"
-            ? "Ajoutez VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY, puis redémarrez."
+            ? "Ajoutez SUPABASE_URL et SUPABASE_ANON_KEY, puis redémarrez."
             : "Impossible de charger le catalogue."}
         </p>
       )}
