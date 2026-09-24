@@ -6,7 +6,6 @@ import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
 import { breedLabel, formatPrice, loc } from "../translations";
 import SEO from "../seo/SEO.jsx";
-import { formatPrice, loc } from "../translations";
 
 export default function PuppyDetails() {
   const { id, breed, puppy: puppyParam } = useParams();

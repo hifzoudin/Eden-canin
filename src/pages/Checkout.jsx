@@ -7,7 +7,6 @@ import { useI18n } from "../context/LanguageContext";
 import { useStore } from "../context/StoreContext";
 import { breedLabel, formatPrice } from "../translations";
 import SEO from "../seo/SEO.jsx";
-import { formatPrice } from "../translations";
 
 export default function Checkout() {
   const { t, lang } = useI18n();
