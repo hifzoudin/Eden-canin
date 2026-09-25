@@ -21,7 +21,7 @@ function removeMetaTag(name, property = false) {
 }
 
 function setCanonical(pathname) {
-  const href = `https://www.eden-canin.fr${pathname === "/" ? "/" : pathname.replace(/\/+$/, "") || "/"}`;
+  const href = `https://www.eden-canine.com${pathname === "/" ? "/" : pathname.replace(/\/+$/, "") || "/"}`;
   let element = document.head.querySelector('link[rel="canonical"]');
   if (!element) {
     element = document.createElement("link");
@@ -53,14 +53,14 @@ function getHomeMetadata() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Eden Canin",
-      url: "https://www.eden-canin.fr/",
-      logo: "https://www.eden-canin.fr/logo.jpeg",
+      url: "https://www.eden-canine.com/",
+      logo: "https://www.eden-canine.com/logo.jpeg",
       sameAs: ["https://wa.me/", "https://www.instagram.com/"],
       contactPoint: [{
         "@type": "ContactPoint",
         contactType: "customer service",
         availableLanguage: ["French", "English", "German"],
-        url: "https://www.eden-canin.fr/contact"
+        url: "https://www.eden-canine.com/contact"
       }]
     }
   };
@@ -85,7 +85,7 @@ export default function SEO({ title, description, image, type = "website", path,
     setMetaTag("og:title", resolvedTitle, true);
     setMetaTag("og:description", resolvedDescription, true);
     setMetaTag("og:type", resolvedType, true);
-    setMetaTag("og:url", `https://www.eden-canin.fr${resolvedPath}`, true);
+    setMetaTag("og:url", `https://www.eden-canine.com${resolvedPath}`, true);
     setMetaTag("og:image", resolvedImage, true);
     setMetaTag("twitter:card", "summary_large_image");
     setMetaTag("twitter:title", resolvedTitle);
@@ -101,7 +101,7 @@ export default function SEO({ title, description, image, type = "website", path,
           "@type": "ListItem",
           position: index + 1,
           name: item.label,
-          item: `https://www.eden-canin.fr${item.href}`
+          item: `https://www.eden-canine.com${item.href}`
         }))
       };
       setJsonLd(breedSchema);
@@ -120,7 +120,7 @@ export default function SEO({ title, description, image, type = "website", path,
           priceCurrency: "EUR",
           price: Number(puppy.price || 0),
           availability: `https://schema.org/${availability}`,
-          url: `https://www.eden-canin.fr${resolvedPath}`
+          url: `https://www.eden-canine.com${resolvedPath}`
         }
       };
       setJsonLd(puppySchema);
