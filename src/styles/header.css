@@ -40,7 +40,8 @@
   gap: 18px;
   font-size: 0.95rem;
 }
-.site-header nav a.active { color: var(--forest); }
+.site-header nav a.active,
+.breed-menu-button.active { color: var(--forest); }
 .breed-menu {
   position: relative;
 }
@@ -73,8 +74,18 @@
   padding: 8px;
   z-index: 20;
 }
-.breed-menu.open .breed-menu-panel {
+.breed-menu.open .breed-menu-panel,
+.breed-menu:hover .breed-menu-panel,
+.breed-menu:focus-within .breed-menu-panel {
   display: flex;
+}
+.breed-menu-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
 }
 .breed-menu-panel a {
   padding: 10px 12px;
@@ -147,6 +158,13 @@
     box-shadow: var(--shadow);
   }
   .site-header nav.open { display: flex; }
+  .breed-menu:hover .breed-menu-panel,
+  .breed-menu:focus-within .breed-menu-panel {
+    display: none;
+  }
+  .breed-menu.open .breed-menu-panel {
+    display: flex;
+  }
   .breed-menu {
     width: 100%;
   }
