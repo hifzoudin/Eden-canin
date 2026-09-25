@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-
+Disallow: /api/
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /login
@@ -10,7 +10,5 @@ Disallow: /sales/
 Disallow: /settings/
 Disallow: /cart
 Disallow: /checkout
-Disallow: /panier
-Disallow: /commande
 
-Sitemap: https://www.eden-canine.com/sitemap.xml
+Sitemap: https://www.eden-canin.fr/sitemap.xml

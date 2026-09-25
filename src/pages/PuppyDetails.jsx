@@ -19,9 +19,9 @@ export default function PuppyDetails() {
 
   if (!puppy) return <section className="page"><p>{t.puppies.empty}</p></section>;
 
-  const breedLabel = t.breedNames[puppy.breed] || puppy.breed;
-  const title = `${puppy.name} – ${breedLabel} Puppy | Eden Canin`;
-  const description = `Découvrez ${puppy.name}, un chiot ${breedLabel} disponible chez Eden Canin. Consultez ses photos, caractéristiques, prix et disponibilité.`;
+  const breedName = t.breedNames[puppy.breed] || puppy.breed;
+  const title = `${puppy.name} – ${breedName} | Eden Canin`;
+  const description = `Découvrez ${puppy.name}, un chiot ${breedName} disponible chez Eden Canin. Consultez ses photos, caractéristiques, prix et disponibilité.`;
 
   return (
     <>

@@ -26,7 +26,7 @@ export default function Home() {
         <img
           className="hero-image"
           src="https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=2000&q=80"
-          alt=""
+          alt="Chiot Eden Canin en France"
         />
         <div className="hero-overlay" />
         <motion.div className="hero-copy" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
@@ -93,7 +93,7 @@ export default function Home() {
         </div>
         <div className="photo-mosaic">
           {(content.kennelPhotos || []).map((src) => (
-            <img key={src} src={src} alt="" />
+            <img key={src} src={src} alt="Élevage Eden Canin en France" />
           ))}
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="testimonial-grid">
           {(content.testimonials || []).map((item) => (
             <article key={item.id} className="testimonial-card">
-              <img src={item.photo} alt="" />
+              <img src={item.photo} alt={`Témoignage de ${item.name}`} />
               <p>“{loc(item.text, lang)}”</p>
               <strong>{item.name}</strong>
             </article>

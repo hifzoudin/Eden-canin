@@ -1,12 +1,15 @@
+export const SITE_URL = "https://www.eden-canin.fr";
+export const DEFAULT_OG_IMAGE = "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=1200&q=80";
+
 export const breedCatalog = [
   {
     slug: "french-bulldog",
     label: { fr: "French Bulldog", en: "French Bulldog", de: "French Bulldog" },
-    title: { fr: "French Bulldog Puppies à vendre | Eden Canin", en: "French Bulldog Puppies for sale | Eden Canin", de: "French Bulldog Welpen zu verkaufen | Eden Canin" },
+    title: { fr: "French Bulldog à vendre | Eden Canin", en: "French Bulldog puppies for sale | Eden Canin", de: "French Bulldog Welpen zu verkaufen | Eden Canin" },
     description: {
-      fr: "Découvrez nos French Bulldog disponibles chez Eden Canin. Consultez leurs photos, caractéristiques, prix et disponibilité, puis contactez-nous via WhatsApp.",
-      en: "Discover our French Bulldog puppies available at Eden Canin. View photos, details, price and availability, then contact us via WhatsApp.",
-      de: "Entdecken Sie unsere verfügbaren French Bulldog Welpen bei Eden Canin. Sehen Sie Fotos, Details, Preis und Verfügbarkeit und kontaktieren Sie uns per WhatsApp."
+      fr: "Découvrez nos French Bulldog disponibles chez Eden Canin. Consultez leurs photos, caractéristiques, prix et disponibilité avant de nous contacter.",
+      en: "Discover our French Bulldog puppies available at Eden Canin. View photos, details, price and availability before contacting us.",
+      de: "Entdecken Sie unsere verfügbaren French Bulldog Welpen bei Eden Canin. Sehen Sie Fotos, Details, Preis und Verfügbarkeit, bevor Sie uns kontaktieren."
     },
     intro: {
       fr: "Les French Bulldog sont appréciés pour leur caractère attachant et leur présence douce. Découvrez les chiots disponibles et prenez contact avec notre élevage.",
@@ -17,9 +20,9 @@ export const breedCatalog = [
   {
     slug: "dachshund",
     label: { fr: "Dachshund", en: "Dachshund", de: "Dackel" },
-    title: { fr: "Dachshund à vendre | Eden Canin", en: "Dachshund Puppies for sale | Eden Canin", de: "Dackel Welpen zu verkaufen | Eden Canin" },
+    title: { fr: "Dachshund à vendre | Eden Canin", en: "Dachshund puppies for sale | Eden Canin", de: "Dackel Welpen zu verkaufen | Eden Canin" },
     description: {
-      fr: "Découvrez les Dachshund disponibles chez Eden Canin. Consultez leurs photos, prix, disponibilité et informations avant de les rencontrer.",
+      fr: "Découvrez les Dachshund disponibles chez Eden Canin. Consultez leurs photos, prix, disponibilité et informations avant de nous contacter.",
       en: "Discover Dachshund puppies available at Eden Canin. Check photos, price, availability and information before contacting us.",
       de: "Entdecken Sie verfügbare Dackel bei Eden Canin. Sehen Sie Fotos, Preis, Verfügbarkeit und Informationen, bevor Sie uns kontaktieren."
     },
@@ -64,7 +67,7 @@ export const breedCatalog = [
     label: { fr: "Caniche", en: "Poodle", de: "Pudel" },
     title: { fr: "Caniche à vendre | Eden Canin", en: "Poodle puppies for sale | Eden Canin", de: "Pudel Welpen zu verkaufen | Eden Canin" },
     description: {
-      fr: "Découvrez nos Caniches disponibles chez Eden Canin. Consultez vos options, leurs détails et leur disponibilité puis contactez-nous sur WhatsApp.",
+      fr: "Découvrez nos Caniches disponibles chez Eden Canin. Consultez les détails, les photos et la disponibilité avant de nous contacter.",
       en: "Discover our available Poodles at Eden Canin. Explore each puppy’s details, price and availability before contacting us via WhatsApp.",
       de: "Entdecken Sie unsere verfügbaren Pudel bei Eden Canin. Sehen Sie Details, Preis und Verfügbarkeit und kontaktieren Sie uns über WhatsApp."
     },
@@ -114,7 +117,7 @@ export function getBreedMeta(breedSlug, lang = "fr") {
     title: breed.title[lang] || breed.title.fr,
     description: breed.description[lang] || breed.description.fr,
     intro: breed.intro[lang] || breed.intro.fr,
-    h1: `${breed.label[lang] || breed.label.fr} Puppies à vendre` ,
+    h1: `${breed.label[lang] || breed.label.fr} à vendre`,
     route: `/puppies/${breed.slug}`
   };
 }
@@ -141,8 +144,8 @@ export function buildBreadcrumbs({ lang = "fr", breedSlug, puppyName, route }) {
 
 export function getDefaultSeoMetadata() {
   return {
-    title: "Eden Canin | Chiots à vendre – French Bulldog, Dachshund, Poodle & plus",
-    description: "Découvrez les chiots disponibles chez Eden Canin : French Bulldog, Dachshund, Épagneul Breton, Border Collie et Poodle. Consultez leurs détails et contactez-nous sur WhatsApp.",
+    title: "Eden Canin | Chiots à vendre – French Bulldog, Dachshund, Border Collie, Caniche",
+    description: "Découvrez les chiots disponibles chez Eden Canin : French Bulldog, Dachshund, Border Collie, Caniche et Épagneul Breton. Consultez leurs détails et contactez-nous directement.",
     path: "/"
   };
 }
