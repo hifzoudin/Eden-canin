@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import PuppyCard from "../components/PuppyCard";
 import { useI18n } from "../context/LanguageContext";
@@ -9,10 +9,11 @@ import { loc } from "../translations";
 export default function Puppies() {
   const { t, lang } = useI18n();
   const { puppies, breeds, loading } = useStore();
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
+  const race = params.get("race") || "";
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState({
-    breed: params.get("race") || "",
+    breed: race,
     variety: "",
     sex: "",
     color: "",
@@ -41,10 +42,24 @@ export default function Puppies() {
     });
   }, [puppies, query, filters, lang]);
 
-  const set = (key) => (e) => setFilters((prev) => ({ ...prev, [key]: e.target.value }));
+  // The header stays on /chiots and only changes ?race=, so the page must follow that param.
+  useEffect(() => {
+    setFilters((prev) => (prev.breed === race ? prev : { ...prev, breed: race }));
+  }, [race]);
+
+  const set = (key) => (event) => {
+    const value = event.target.value;
+    setFilters((prev) => ({ ...prev, [key]: value }));
+    if (key !== "breed") return;
+    const next = new URLSearchParams(params);
+    if (value) next.set("race", value);
+    else next.delete("race");
+    setParams(next, { replace: true });
+  };
   const reset = () => {
     setQuery("");
     setFilters({ breed: "", variety: "", sex: "", color: "", status: "", price: "", age: "" });
+    setParams({}, { replace: true });
   };
 
   return (
