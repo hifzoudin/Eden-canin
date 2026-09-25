@@ -13,4 +13,4 @@ Disallow: /checkout
 Disallow: /panier
 Disallow: /commande
 
-Sitemap: https://www.eden-canin.fr/sitemap.xml
+Sitemap: https://www.eden-canine.com/sitemap.xml
