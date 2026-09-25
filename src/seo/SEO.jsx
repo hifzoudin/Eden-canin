@@ -69,11 +69,12 @@ function getHomeMetadata() {
           name: "Eden Canin",
           url: SITE_URL,
           logo: `${SITE_URL}/logo.jpeg`,
-          sameAs: ["https://wa.me/", "https://www.instagram.com/"],
+          sameAs: ["https://wa.me/33746426294", "https://www.instagram.com/"],
           contactPoint: [{
             "@type": "ContactPoint",
             contactType: "customer service",
             availableLanguage: ["French", "English", "German"],
+            telephone: "+33746426294",
             url: `${SITE_URL}/contact`
           }],
           areaServed: "France"

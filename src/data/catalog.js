@@ -1,10 +1,10 @@
 export const defaultSettings = {
   siteName: "Eden Canine",
   logo: "/logo.jpeg",
-  whatsapp: "",
+  whatsapp: "+33746426294",
   email: "hello@eden-canine.fr",
   address: "France",
-  phone: "",
+  phone: "+33746426294",
   hours: "Lun. - Sam. • 9h - 18h",
   socials: {
     instagram: "",
