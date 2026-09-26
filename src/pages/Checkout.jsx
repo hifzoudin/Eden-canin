@@ -13,7 +13,7 @@ export default function Checkout() {
   const { items, total, clear } = useCart();
   const { refresh, puppies, settings } = useStore();
   const [form, setForm] = useState({
-    firstName: "Teo",
+    firstName: "",
     lastName: "",
     email: "",
     phone: "+4915905491841",
