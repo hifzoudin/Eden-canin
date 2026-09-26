@@ -13,10 +13,10 @@ export default function Checkout() {
   const { items, total, clear } = useCart();
   const { refresh, puppies, settings } = useStore();
   const [form, setForm] = useState({
-    firstName: "",
+    firstName: "Teo",
     lastName: "",
     email: "",
-    phone: "+34678908754",
+    phone: "+4915905491841",
     country: "France",
     city: "",
     address: "",
