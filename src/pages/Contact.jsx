@@ -17,7 +17,7 @@ export default function Contact() {
   });
 
   const socials = settings?.socials || {};
-  const email = settings?.email || "hello@eden-canine.fr";
+  const email = settings?.email || "edencanine@gmail.com";
   const address = settings?.address || "France";
   const hours = settings?.hours || t.contact.hoursDefault;
 
