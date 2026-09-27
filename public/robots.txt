@@ -11,4 +11,4 @@ Disallow: /settings/
 Disallow: /cart
 Disallow: /checkout
 
-Sitemap: https://www.eden-canin.fr/sitemap.xml
+Sitemap: https://www.eden-canine.com/sitemap.xml

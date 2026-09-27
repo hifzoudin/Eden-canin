@@ -1,4 +1,5 @@
 import { supabase, supabaseConfigured } from "./supabase";
+import { defaultSettings } from "../data/catalog";
 
 function ageWeeks(birthDate) {
   if (!birthDate) return 0;
@@ -19,18 +20,28 @@ export async function getPublicSettings() {
   assertConfigured();
   const { data, error } = await supabase.from("public_settings").select("*").single();
   if (error) throw error;
-  const whatsapp = data.whatsapp || "";
+
+  const legacyEmail = "edencanine@gmail.com";
+  const legacyWhatsapp = "+4915905491841";
+
+  const email = (data.email || "").trim();
+  const whatsapp = (data.whatsapp || "").trim();
+  const phone = (data.phone || "").trim();
+
   return {
-    siteName: data.site_name || "Eden Canine",
-    logo: data.logo_url || "/logo.jpeg",
-    whatsapp,
-    email: data.email || "",
-    address: data.address || "",
-    phone: data.phone || "",
-    hours: data.hours || "",
-    socials: { instagram: data.instagram || "", facebook: data.facebook || "" },
-    hasWhatsApp: Boolean(String(whatsapp).replace(/\D/g, "")),
-    languages: data.languages || ["fr", "en", "de"],
+    siteName: data.site_name || defaultSettings.siteName,
+    logo: data.logo_url || defaultSettings.logo,
+    whatsapp: whatsapp && whatsapp !== legacyWhatsapp ? whatsapp : defaultSettings.whatsapp,
+    email: email && email !== legacyEmail ? email : defaultSettings.email,
+    address: data.address || defaultSettings.address,
+    phone: phone && phone !== legacyWhatsapp ? phone : defaultSettings.phone,
+    hours: data.hours || defaultSettings.hours,
+    socials: {
+      instagram: data.instagram || defaultSettings.socials.instagram,
+      facebook: data.facebook || defaultSettings.socials.facebook
+    },
+    hasWhatsApp: Boolean(String(whatsapp && whatsapp !== legacyWhatsapp ? whatsapp : defaultSettings.whatsapp).replace(/\D/g, "")),
+    languages: data.languages || defaultSettings.languages,
     disablePurchaseWhenPending: !!data.disable_purchase_when_pending
   };
 }
